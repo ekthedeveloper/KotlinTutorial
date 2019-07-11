@@ -10,6 +10,8 @@ import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
 import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.navigation.NavigationView
+import dvelopd.kotlintutorial.adapters.MyPagerAdapter
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
     private lateinit var mDrawerLayout: DrawerLayout
@@ -21,6 +23,10 @@ class MainActivity : AppCompatActivity() {
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         mDrawerLayout = findViewById(R.id.drawerLayout)
         val navigationView: NavigationView = findViewById(R.id.navView)
+
+        val fragmentAdapter = MyPagerAdapter(supportFragmentManager)
+        viewPager.adapter = fragmentAdapter
+        tabs.setupWithViewPager(viewPager)
 
         setSupportActionBar(toolbar)
         val actionbar: ActionBar? = supportActionBar
